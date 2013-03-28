@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="mail" xmlns="http://jbpm.org/4.4/jpdl">
+   <start g="156,49,48,48" name="start1">
+      <transition g="-52,-22" name="to state" to="state"/>
+   </start>
+   <state g="159,159,92,52" name="state">
+      <transition g="-50,-22" name="to send email" to="send rectify note"/>
+   </state>
+   <mail g="170,278,80,40" name="send rectify note" template="simple-template">
+   <!--  
+   		<to addresses="#{to}"/>
+	    <subject>通知:${person}</subject>
+	    <text>这是使用jbpm的mail node发送过来的邮件信息</text>
+	    <attachments>
+		    <attachment mime-type="image/jpeg" resource="mail.png"/>
+		    <attachment mime-type="image/jpeg" name="mail.png" resource="mail.png"/>
+	    </attachments>
+	-->
+       <transition to="end1"/>
+   </mail>
+   <end g="192,382,48,48" name="end1"/>
+</process>
